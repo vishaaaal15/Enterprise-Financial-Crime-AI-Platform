@@ -22,15 +22,17 @@ st.set_page_config(
 @st.cache_data
 def load_data():
 
-    df = pd.read_csv(
-        r"C:\Users\vshal\data\processed\transactions_v2.csv"
-    )
+    import os
 
-    df["transaction_timestamp"] = pd.to_datetime(
-        df["transaction_timestamp"]
-    )
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    return df
+DATA_PATH = os.path.join(
+    BASE_DIR,
+    "data",
+    "transactions_v2.csv"
+)
+
+df = pd.read_csv(DATA_PATH)
 
 
 df = load_data()
