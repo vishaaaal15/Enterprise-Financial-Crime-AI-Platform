@@ -18,6 +18,8 @@ st.set_page_config(
 # Load Dataset
 # ---------------------------------------------------
 
+import os
+
 @st.cache_data
 def load_data():
 
@@ -26,7 +28,7 @@ def load_data():
     DATA_PATH = os.path.join(
         BASE_DIR,
         "data",
-        "transactions_demo.csv"     # Change to transactions_v2.csv for local use
+        "transactions_demo.csv"
     )
 
     df = pd.read_csv(DATA_PATH)
@@ -39,7 +41,6 @@ def load_data():
 
 
 df = load_data()
-
 # ---------------------------------------------------
 # Load ML Model
 # ---------------------------------------------------
